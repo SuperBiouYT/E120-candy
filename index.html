@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profil — Dégradé bleu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0ea5e9;
+      --bg2:#2563eb;
+      --bg3:#60a5fa;
+      --glass: rgba(255,255,255,0.08);
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
+      background-size: 300% 300%;animation: gradientShift 12s ease infinite;
+    }
+    @keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+    /* ...existing code... */
+
+    /* la carte s'ajuste à la taille de l'image */
+    .card{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;               /* espace autour de l'image */
+      border-radius:20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      box-shadow: 0 10px 30px rgba(2,6,23,0.45);
+      backdrop-filter: blur(6px);-webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.06);
+      /* pas de largeur/hauteur fixe : la carte suit l'image */
+    }
+
+    /* avatar = image réelle ; le cercle correspond à la taille de l'image */
+    .avatar{
+      display:block;
+      border-radius:50%;
+      box-shadow: 0 8px 24px rgba(2,6,23,0.45);
+      border:6px solid rgba(255,255,255,0.08);
+      background-color:#eef6ff;
+      object-fit:cover;
+      width:auto;
+      height:auto;
+      max-width:40vmin;   /* limite pour éviter débordement sur petits écrans */
+      max-height:40vmin;
+    }
+
+    .social{
+      position:fixed;left:50%;transform:translateX(-50%);bottom:28px;display:flex;gap:18px;align-items:center;
+    }
+    .social a{
+      width:52px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;
+      background:var(--glass);transition:transform .18s ease, background .18s ease;text-decoration:none;color:white;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.25);border: 1px solid rgba(255,255,255,0.04);
+    }
+    .social a:hover{transform:translateY(-6px) scale(1.03);background: rgba(255,255,255,0.12);}
+    .social svg{ width:22px;height:22px;display:block;fill:white; }
+
+    @media (max-width:420px){
+      .card{padding:14px;}
+      .avatar{max-width:60vmin; max-height:60vmin;}
+      .social a{width:46px;height:40px;}
+    }
+    /* ...existing code... */
+  </style>
+</head>
+<body>
+  <div class="card" role="main" aria-label="Photo de profil">
+    <!-- utiliser <img> pour que le rond corresponde exactement à la taille réelle de l'image -->
+    <img
+      class="avatar"
+      src="https://cdn.discordapp.com/attachments/1380571357053587587/1424291370230743040/IMG_9438.png?ex=68e36a34&is=68e218b4&hm=784b37a9f44a30e3f5193de4fde8316ff51906ce5efaf846572d8172ceb0d18f&"
+      alt="Photo de profil">
+  </div>
+
+  <nav class="social" aria-label="Planet Minecraft">
+    <a href="https://www.planetminecraft.com/member/e120_candy/" target="_blank" rel="noopener noreferrer" aria-label="Planet Minecraft">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C9.243 2 6.78 3.09 5 4.76 3.61 6.09 3 7.69 3 9.5c0 4.97 4.03 9 9 9 1.81 0 3.41-.61 4.74-1.99C20.91 17.22 22 14.757 22 12c0-5.523-4.477-10-10-10zm0 2c3.866 0 7 3.134 7 7 0 1.657-.507 3.19-1.376 4.477C16.593 15.59 14.39 14.5 12 14.5s-4.593 1.09-5.624 1.977C5.507 14.19 5 12.657 5 11c0-3.866 3.134-7 7-7zM6 18c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"/></svg>
+    </a>
+  </nav>
+</body>
+</html>
